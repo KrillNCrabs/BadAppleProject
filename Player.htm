@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<style>
+#apple{
+line-height:7px
+}
+body{
+margin: 0;
+padding:0
+}
+pre{
+margin: 0;
+padding:0;
+}
+</style>
+<body>
+<pre id="apple"></pre>
+<button onclick="startin()" id="bttn">Start</button>
+<script src="Part1.js"></script>
+<script src="Part2.js"></script>
+<script src="Part3.js"></script>
+<script src="Part4.js"></script>
+<script src="Part5.js"></script>
+<script src="Part6.js"></script>
+<script>
+var appleArray = apps1.concat(apps2).concat(apps3).concat(apps4).concat(apps5).concat(apps6)
+var started ="False"
+var i = 0
+var lent = 100/3
+function startin(){
+if(started=="False"){
+i = 0
+document.getElementById("bttn").style.display = "none"
+var audio = new Audio('01. Bad Apple!!.mp3');
+audio.play();
+interval = setInterval(badAppling,lent)
+started="True"
+}//30 grabbed too quickly
+}//31 grabbed too late
+i = 0
+function badAppling(){
+document.getElementById("apple").innerHTML = appleArray[i]
+i++
+if(i>appleArray.length+5){
+started = "False"
+clearInterval(interval)
+document.getElementById("bttn").style.display = ""
+}
+}
+</script>
+</body>
+</html>
